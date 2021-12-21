@@ -20,7 +20,13 @@
     "web-vitals": "^2.1.2"
   },
   "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
     "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
       "react-app"
     ],
     "rules": {
@@ -56,9 +62,7 @@
           "allowExpressions": true
         }
       ],
-      "@typescript-eslint/no-non-null-assertion": "off",
-      "@typescript-eslint/ban-ts-ignore": "off",
-      "@typescript-eslint/no-unused-vars": "warn"
+      "@typescript-eslint/ban-ts-ignore": "off"
     }
   },
   "prettier": {
