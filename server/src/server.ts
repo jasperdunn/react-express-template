@@ -1,8 +1,9 @@
 import express from 'express'
+import cors from 'cors'
 import tcpPortUsed from 'tcp-port-used'
 import { prompt } from 'inquirer'
 
-async function start(port = 8080): Promise<void> {
+async function start(port = 5000): Promise<void> {
   try {
     const portIsUsed = await tcpPortUsed.check(port, 'localhost')
 
@@ -25,12 +26,23 @@ async function start(port = 8080): Promise<void> {
         process.exit()
       }
     } else {
-      const application = express()
-      application.get('/', (request, response) => {
-        response.send('Hello world!')
+      const server = express()
+
+      server.use(cors({ origin: 'http://localhost:3000' }))
+
+      server.get('/colors', (request, response) => {
+        response.send([
+          'red',
+          'orange',
+          'yellow',
+          'green',
+          'blue',
+          'indigo',
+          'violet',
+        ])
       })
 
-      application.listen(port, () => {
+      server.listen(port, () => {
         console.log(`Server is listening at http://localhost:${port}`)
       })
     }

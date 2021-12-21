@@ -8,6 +8,7 @@
     "start": "chokidar src/*.ts --initial --silent -c \"tsc && node dist/server.js\""
   },
   "dependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.11",
     "@types/inquirer": "^7.3.1",
     "@types/jsonwebtoken": "^8.5.1",
@@ -15,6 +16,7 @@
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "chokidar-cli": "^2.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint": "^7.24.0",
     "eslint-plugin-import": "^2.22.1",
